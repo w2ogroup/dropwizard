@@ -4,17 +4,84 @@
 Release Notes
 #############
 
+.. _rel-0.7.0:
+
+v0.7.0-SNAPSHOT
+===============
+
+* Upgraded to Java 7.
+* Moved to the ``com.codahale`` group ID and namespace.
+* Upgraded to Jetty 9.0.3.
+* Upgraded to Metrics 3.
+* Dropped Scala support.
+* Renamed ``Service`` to ``Application``.
+* Added ``AppenderFactory``, allowing for arbitrary logging appenders for application and request
+  logs.
+* Added ``ConnectorFactory``, allowing for arbitrary Jetty connectors.
+* Added ``ServerFactory``, with multi- and single-connector implementations.
+* Added ``dropwizard-spdy``.
+* Added builders for managed executors.
+* Added a default ``check`` command, which loads and validates the service configuration.
+* Extracted out a number of reusable libraries: ``dropwizard-configuration``,
+  ``dropwizard-jackson``, ``dropwizard-jersey``, ``dropwizard-jetty``, ``dropwizard-lifecycle``,
+  ``dropwizard-logging``, ``dropwizard-servlets``, ``dropwizard-util``, ``dropwizard-validation``.
+* Dropped ``ObjectMapperFactory``; use ``ObjectMapper`` instead.
+* Dropped ``Validator``; use ``javax.validation.Validator`` instead.
+* Changed error handling to depend more heavily on Jersey exception mapping.
+* Validation errors are now returned as ``application/json`` responses.
+* Added ``ConfigurationSourceProvider`` to allow loading configuration files from sources other than
+  the filesystem.
+* Added ``HibernateBundle#configure(Configuration)`` for customization of Hibernate configuration.
+* Simplified ``AsyncRequestLog``; now standardized on Jetty 9 NCSA format.
+* Fixed a shutdown bug in ``dropwizard-migrations``.
+* Extracted out various elements of ``Environment`` to separate classes: ``JerseyEnvironment``,
+  ``LifecycleEnvironment``, etc.
+* Renamed ``DatabaseConfiguration`` to ``DataSourceFactory``, and ``ConfigurationStrategy`` to
+  ``DatabaseConfiguration``.
+* Upgraded to JDBI 2.49.
+* Upgraded to Logback 1.0.13.
+* Upgraded to SLF4J 1.7.5.
+* Upgraded to Hibernate Validator 5.0.1.
+* Upgraded to argparse4j 0.4.1.
+* Removed ``ManagedSessionFactory``.
+* Moved ``dropwizard-db`` to use ``tomcat-jdbc`` instead of ``tomcat-dbcp``.
+* Extracted out ``dropwizard-views-freemarker`` and ``dropwizard-views-mustache``.
+  ``dropwizard-views`` just provides infrastructure now.
+* Upgraded to Jackson 2.2.2.
+* Upgraded to Mustache 0.8.12.
+* Added support for the Jetty HTTP client to ``dropwizard-client``.
+* Added Jackson Afterburner support.
+* Added ``dropwizard-forms``, which provides support for multipart MIME entities.
+* Added support for ``deflate``-encoded requests and responses.
+* Added support for deserializing Java ``enums`` with fuzzy matching rules (i.e., whitespace
+  stripping, ``-``/``_`` equivalence, case insensitivity, etc.).
+
 .. _rel-0.6.2:
 
-v0.6.2-SNAPSHOT: TBD
-====================
+v0.6.2: Mar 18 2013
+===================
 
-* Upgraded to Jersey 1.16.
-* Upgraded to Jackson 2.1.2.
-* Upgraded to Logback 1.0.9.
+* Added support for non-UTF8 views.
+* Fixed an NPE for services in the root package.
+* Fixed exception handling in ``TaskServlet``.
+* Upgraded to Slf4j 1.7.4.
+* Upgraded to Jetty 8.1.10.
+* Upgraded to Jersey 1.17.1.
+* Upgraded to Jackson 2.1.4.
+* Upgraded to Logback 1.0.10.
 * Upgraded to Hibernate 4.1.9.
 * Upgraded to Hibernate Validator 4.3.1.
-* Upgraded to tomcat-dbcp 7.0.34.
+* Upgraded to tomcat-dbcp 7.0.37.
+* Upgraded to Mustache.java 0.8.10.
+* Upgraded to Apache HttpClient 4.2.3.
+* Upgraded to Jackson 2.1.3.
+* Upgraded to argparse4j 0.4.0.
+* Upgraded to Guava 14.0.1.
+* Upgraded to Joda Time 2.2.
+* Added ``retries`` to ``HttpClientConfiguration``.
+* Fixed log formatting for extended stack traces, also now using extended stack traces as the
+  default.
+* Upgraded to FEST Assert 2.0M10.
 
 .. _rel-0.6.1:
 
